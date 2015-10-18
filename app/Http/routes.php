@@ -15,7 +15,7 @@
  * Registers the GET route to the application landing page.
  */
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 /**
