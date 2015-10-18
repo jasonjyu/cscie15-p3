@@ -26,7 +26,7 @@ class LoremIpsumController extends Controller
      */
     public function postIndex(Request $request)
     {
-        dd($request);
+        dd($request->all());
         //
         return "The generated result of Lorem Ipsum text.";
     }

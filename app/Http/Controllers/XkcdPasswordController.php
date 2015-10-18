@@ -26,7 +26,7 @@ class XkcdPasswordController extends Controller
      */
     public function postIndex(Request $request)
     {
-        dd($request);
+        dd($request->all());
         //
         return "The generated result of xkcd Passwords.";
     }
