@@ -11,6 +11,39 @@
 |
 */
 
+/**
+ * Registers the GET route to the application landing page.
+ */
 Route::get('/', function () {
     return view('welcome');
 });
+
+/**
+ * Registers the GET route to the Lorem Ipsum Generator page.
+ */
+Route::get('/lorem-ipsum', 'LoremIpsumController@getIndex');
+
+/**
+ * Registers the POST route to the Lorem Ipsum Generator page.
+ */
+Route::post('/lorem-ipsum', 'LoremIpsumController@postIndex');
+
+/**
+ * Registers the GET route to the Random User Generator page.
+ */
+Route::get('/random-user', 'RandomUserController@getIndex');
+
+/**
+ * Registers the POST route to the Random User Generator page.
+ */
+Route::post('/random-user', 'RandomUserController@postIndex');
+
+/**
+ * Registers the GET route to the xkcd Password Generator page.
+ */
+Route::get('/xkcd-password', 'XkcdPasswordController@getIndex');
+
+/**
+ * Registers the POST route to the xkcd Password Generator page.
+ */
+Route::post('/xkcd-password', 'XkcdPasswordController@postIndex');
