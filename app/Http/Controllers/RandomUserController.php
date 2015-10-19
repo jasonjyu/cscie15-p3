@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class RandomUserController extends Controller
 {
     /**
-     * Display the form for generating Random User data.
+     * Displays the form for generating Random User data.
      *
      * @return \Illuminate\Http\Response
      */
@@ -20,7 +20,7 @@ class RandomUserController extends Controller
     }
 
     /**
-     * Display the generated result of Random User data.
+     * Displays the generated result of Random User data.
      *
      * @return \Illuminate\Http\Response
      */

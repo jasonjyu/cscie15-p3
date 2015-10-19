@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class XkcdPasswordController extends Controller
 {
     /**
-     * Display the form for generating xkcd Passwords.
+     * Displays the form for generating xkcd Passwords.
      *
      * @return \Illuminate\Http\Response
      */
@@ -20,7 +20,7 @@ class XkcdPasswordController extends Controller
     }
 
     /**
-     * Display the generated result of xkcd Passwords.
+     * Displays the generated result of xkcd Passwords.
      *
      * @return \Illuminate\Http\Response
      */
