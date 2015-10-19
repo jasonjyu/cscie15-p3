@@ -10,7 +10,6 @@ such as a page specific styesheets.
 @stop
 
 @section('content')
-    <h1>Developer's Best Friend</h1>
 @stop
 
 {{--

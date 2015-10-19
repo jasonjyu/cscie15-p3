@@ -23,11 +23,7 @@
 </head>
 <body>
     <header>
-        <a href='/'>
-            <img src='http://lengjai.me/image4.jpg'
-                 style='width:300px'
-                 alt='Developer''s Best Friend Logo'>
-        </a>
+        <h1>Developer's Best Friend</h1>
     </header>
 
     <nav>

@@ -14,7 +14,7 @@ such as a page specific styesheets.
 @stop
 
 @section('content')
-    <h1>xkcd Password Generator</h1>
+    <h2>xkcd Password Generator</h2>
 
     @if (count($errors) > 0)
     <ul>
