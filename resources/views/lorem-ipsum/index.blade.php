@@ -10,28 +10,62 @@ Use it to add specific things that *this* View needs in the head,
 such as a page specific styesheets.
 --}}
 @section('head')
-    {{-- <link href='/css/lorem-ipsum.css' type='text/css' rel='stylesheet'> --}}
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <link href='/css/lorem-ipsum.css' type='text/css' rel='stylesheet'/>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 @stop
 
 @section('content')
     <h2>Lorem Ipsum Generator</h2>
 
-    <form method='POST' action='/lorem-ipsum'>
+    <form method='post' action='/lorem-ipsum' data-transition="none">
         <input type='hidden' value='{{ csrf_token() }}' name='_token'/>
         <fieldset>
-            <label for='title'>Number of Paragraphs:</label>
-            <input type='text' id='num_paragraphs' name='num_paragraphs'/>
+            <label for='num_paragraphs'>Number of Paragraphs:</label>
+            <input id='num_paragraphs'
+                   type='range'
+                   name='num_paragraphs'
+                   value='<?php echo isset($_POST['num_paragraphs']) ?
+                                     $_POST['num_paragraphs'] : 3; ?>'
+                   min='1'
+                   max='50'
+                   data-show-value='false'
+                   data-popup-enabled='true'
+                   data-highlight='true'/>
+            <br>
         </fieldset>
         <fieldset>
-            <label for='title'>Number of Sentences Per Paragraph:</label>
-            <input type='text' id='num_sentences' name='num_sentences'/>
+            <label for='num_sentences'>Number of Sentences Per Paragraph:</label>
+            <input id='num_sentences'
+                   type='range'
+                   name='num_sentences'
+                   value='<?php echo isset($_POST['num_sentences']) ?
+                                     $_POST['num_sentences'] : 5; ?>'
+                   min='1'
+                   max='50'
+                   data-show-value='false'
+                   data-popup-enabled='true'
+                   data-highlight='true'/>
+            <br>
         </fieldset>
         <fieldset>
-            <label for='title'>Number of Words Per Sentence:</label>
-            <input type='text' id='num_words' name='num_words'/>
+            <label for='num_words'>Number of Words Per Sentence:</label>
+            <input id='num_words'
+                   type='range'
+                   name='num_words'
+                   value='<?php echo isset($_POST['num_words']) ?
+                                     $_POST['num_words'] : 8; ?>'
+                   min='1'
+                   max='50'
+                   data-show-value='false'
+                   data-popup-enabled='true'
+                   data-highlight='true'/>
+            <br>
         </fieldset>
         <br>
-        <button type='submit' class='btn btn-primary'>Generate</button>
+        <input type="submit" value="Generate Text" data-inline="true"/>
     </form>
 
     @if (count($errors) > 0)
@@ -43,10 +77,9 @@ such as a page specific styesheets.
     @endif
 
     @if (isset($text))
-        <section>
+        <section class='lorem-ipsum'>
             @foreach ($text as $paragraph)
-                <p>
-                {{ $paragraph }}
+                <p>{{ $paragraph }}</p>
             @endforeach
         </section>
     @endif
