@@ -30,7 +30,8 @@ class RandomUserController extends Controller
         $this->validate(
             $request,
             [
-                "num_users" => "required|numeric|min:1|max:50"
+                "num_users" => "required|numeric|min:1|max:50",
+                "locale" => "required|alpha_dash|size:5"
             ]);
 
         // print request
@@ -38,9 +39,10 @@ class RandomUserController extends Controller
 
         // parse request
         $num_users = $request["num_users"];
+        $locale = $request["locale"];
 
         // generate Random User data
-        $users = $this->generateUsers($num_users);
+        $users = $this->generateUsers($num_users, $locale);
 
         // return "The generated result of Random User data.";
         return view("random-user.index")->with("users", $users);
@@ -53,17 +55,31 @@ class RandomUserController extends Controller
      * @param  integer $num_users number of users to generate
      * @return array|string
      */
-    protected function generateUsers($num_users)
+    protected function generateUsers($num_users, $locale)
     {
         // initialize generated Random User data array
         $users = array();
 
         // use the factory to create a Faker\Generator instance
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create($locale);
 
         // generate $num_users Random User data
         for ($u = 0; $u < $num_users; $u++) {
-            $users[$u] = $faker->name;
+            // initialize user data associative array
+            $user = array();
+
+            // set user data
+            $user["name"] = $faker->name;
+            $user["address"] = $faker->address;
+            $user["phoneNumber"] = $faker->phoneNumber;
+            $user["email"] = $faker->email;
+            // make user's birthdate between 18 and 50 years ago
+            $user["birthdate"] = $faker->dateTimeBetween("-50 years",
+                "-18 years")->format("Y-m-d");
+
+            // add user data
+            // $users[$u] = $faker->name;
+            $users[$u] = $user;
         }
 
         return $users;
