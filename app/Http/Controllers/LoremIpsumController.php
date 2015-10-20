@@ -44,8 +44,7 @@ class LoremIpsumController extends Controller
         $num_words = $request["num_words"];
 
         // generate Lorem Ipsum text
-        $text = $this->generateText($num_paragraphs,
-            $num_sentences,
+        $text = $this->generateText($num_paragraphs, $num_sentences,
             $num_words);
 
         // return "The generated result of Lorem Ipsum text.";

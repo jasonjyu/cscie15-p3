@@ -10,17 +10,17 @@ Use it to add specific things that *this* View needs in the head,
 such as a page specific styesheets.
 --}}
 @section('head')
-    <link rel="stylesheet" type="text/css" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <link rel='stylesheet' type='text/css' href='//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css'/>
     <link href='/css/lorem-ipsum.css' type='text/css' rel='stylesheet'/>
 
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+    <script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
 @stop
 
 @section('content')
     <h2>Lorem Ipsum Generator</h2>
 
-    <form method='post' action='/lorem-ipsum' data-transition="none">
+    <form method='post' action='/lorem-ipsum' data-transition='none'>
         <input type='hidden' value='{{ csrf_token() }}' name='_token'/>
         <fieldset>
             <label for='num_paragraphs'>Number of Paragraphs:</label>
@@ -65,7 +65,7 @@ such as a page specific styesheets.
             <br>
         </fieldset>
         <br>
-        <input type="submit" value="Generate Text" data-inline="true"/>
+        <input type='submit' value='Generate Text' data-inline='true'/>
     </form>
 
     @if (count($errors) > 0)
