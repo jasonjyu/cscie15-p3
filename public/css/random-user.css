@@ -20,7 +20,10 @@
     text-decoration: underline;
 }
 
-.random-user {
-    padding-top: 25px;
-    padding-bottom: 50px;
+img {
+    border: 2px solid;
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+    width: 25%;
 }

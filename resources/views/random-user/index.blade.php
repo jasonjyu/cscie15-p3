@@ -70,6 +70,14 @@
                    <?php if (isset($_POST['data_options']) &&
                          in_array('birthdate', $_POST['data_options']))
                          echo 'checked'; ?>/>
+            <label for='photo'>Photo</label>
+            <input id='photo'
+                   type='checkbox'
+                   name='data_options[]'
+                   value='photo'
+                   <?php if (isset($_POST['data_options']) &&
+                         in_array('photo', $_POST['data_options']))
+                         echo 'checked'; ?>/>
         </fieldset>
         <br/>
         <fieldset>
@@ -149,6 +157,10 @@
         <section class='random-user'>
             @foreach ($users as $user)
                 <div class='user'>
+                    @if (isset($user['photoUrl']))
+                        <img src='{{ $user['photoUrl'] }}' alt='{{ $user['name'] }}'>
+                    @endif
+
                     <div class='name'>{{ $user['name'] }}</div>
 
                     @if (isset($user['address']))

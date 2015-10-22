@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use \Faker\Provider\Person;
 
 class RandomUserController extends Controller
 {
+    /** The maximum number of users to generate. */
+    const MAX_USERS = 97;
+
+    /** The URL prefix for the photo of the generated user. */
+    const PHOTO_URL_PREFIX = "https://randomuser.me/api/portraits/";
+
     /**
      * Displays the form for generating Random User data.
      *
@@ -30,7 +37,7 @@ class RandomUserController extends Controller
         $this->validate(
             $request,
             [
-                "num_users" => "required|numeric|min:1|max:50",
+                "num_users" => "required|numeric|min:1|max:" . self::MAX_USERS,
                 "locale" => "required|alpha_dash|size:5",
                 "data_options" => "array"
             ]);
@@ -54,8 +61,8 @@ class RandomUserController extends Controller
      * Generates an array of Random User data.
      *
      * @example array($user1, $user2, $user3)
-     * @param  integer $num_users number of users to generate
-     * @param  string  $locale language locale of user data to generate
+     * @param  integer $num_users    number of users to generate
+     * @param  string  $locale       language locale of user data to generate
      * @param  array   $data_options user data fields to generate
      * @return array|associative array
      */
@@ -72,9 +79,13 @@ class RandomUserController extends Controller
             // initialize user data associative array
             $user = array();
 
+            // randomly select user gender
+            $gender = mt_rand(0, 1) ? Person::GENDER_FEMALE :
+                Person::GENDER_MALE;
+
             // generate user name
-            $user["name"] = $faker->name;
-            
+            $user["name"] = $faker->name($gender);
+
             // generate optional user data fields
             if (isset($data_options) && is_array($data_options)) {
                 if (in_array("address", $data_options)) {
@@ -93,6 +104,13 @@ class RandomUserController extends Controller
                     // make user's birthdate between 18 and 50 years ago
                     $user["birthdate"] = $faker->dateTimeBetween("-50 years",
                         "-18 years")->format("Y-m-d");
+                }
+
+                if (in_array("photo", $data_options)) {
+                    // set user photo URL based on gender and a random number
+                    $user["photoUrl"] = self::PHOTO_URL_PREFIX . "/" .
+                        ($gender == Person::GENDER_FEMALE ? "women" : "men") .
+                        "/" . mt_rand(0, self::MAX_USERS - 1) . ".jpg";
                 }
             }
 
