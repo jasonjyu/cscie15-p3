@@ -16,5 +16,5 @@ TBD.
 * Bootstrap: http://getbootstrap.com/
 * Bootstrap Theme: http://bootswatch.com/readable/
 * jQuery Mobile Form Sliders: http://www.w3schools.com/jquerymobile/jquerymobile_form_sliders.asp
-* jQuery Mobile Form Radio Buttons: http://www.w3schools.com/jquerymobile/jquerymobile_form_inputs.asp
+* jQuery Mobile Form Checkboxes: http://www.w3schools.com/jquerymobile/jquerymobile_form_inputs.asp
 * jQuery Mobile Form Select Menus: http://www.w3schools.com/jquerymobile/jquerymobile_form_select.asp

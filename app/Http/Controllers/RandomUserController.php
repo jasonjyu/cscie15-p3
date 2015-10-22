@@ -31,7 +31,8 @@ class RandomUserController extends Controller
             $request,
             [
                 "num_users" => "required|numeric|min:1|max:50",
-                "locale" => "required|alpha_dash|size:5"
+                "locale" => "required|alpha_dash|size:5",
+                "data_options" => "array"
             ]);
 
         // print request
@@ -40,9 +41,10 @@ class RandomUserController extends Controller
         // parse request
         $num_users = $request["num_users"];
         $locale = $request["locale"];
+        $data_options = $request["data_options"];
 
         // generate Random User data
-        $users = $this->generateUsers($num_users, $locale);
+        $users = $this->generateUsers($num_users, $locale, $data_options);
 
         // return "The generated result of Random User data.";
         return view("random-user.index")->with("users", $users);
@@ -53,9 +55,11 @@ class RandomUserController extends Controller
      *
      * @example array($user1, $user2, $user3)
      * @param  integer $num_users number of users to generate
-     * @return array|string
+     * @param  string  $locale language locale of user data to generate
+     * @param  array   $data_options user data fields to generate
+     * @return array|associative array
      */
-    protected function generateUsers($num_users, $locale)
+    protected function generateUsers($num_users, $locale, $data_options)
     {
         // initialize generated Random User data array
         $users = array();
@@ -68,17 +72,31 @@ class RandomUserController extends Controller
             // initialize user data associative array
             $user = array();
 
-            // set user data
+            // generate user name
             $user["name"] = $faker->name;
-            $user["address"] = $faker->address;
-            $user["phoneNumber"] = $faker->phoneNumber;
-            $user["email"] = $faker->email;
-            // make user's birthdate between 18 and 50 years ago
-            $user["birthdate"] = $faker->dateTimeBetween("-50 years",
-                "-18 years")->format("Y-m-d");
+            
+            // generate optional user data fields
+            if (isset($data_options) && is_array($data_options)) {
+                if (in_array("address", $data_options)) {
+                    $user["address"] = $faker->address;
+                }
+
+                if (in_array("phoneNumber", $data_options)) {
+                    $user["phoneNumber"] = $faker->phoneNumber;
+                }
+
+                if (in_array("email", $data_options)) {
+                    $user["email"] = $faker->email;
+                }
+
+                if (in_array("birthdate", $data_options)) {
+                    // make user's birthdate between 18 and 50 years ago
+                    $user["birthdate"] = $faker->dateTimeBetween("-50 years",
+                        "-18 years")->format("Y-m-d");
+                }
+            }
 
             // add user data
-            // $users[$u] = $faker->name;
             $users[$u] = $user;
         }
 

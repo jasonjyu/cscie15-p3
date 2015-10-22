@@ -1,13 +1,8 @@
-/* Prevents clicking on slider imput text box. */
-label {
-    pointer-events: none;
-}
+/* Prevents clicking on slider input text box. */
 .ui-slider-input {
     pointer-events: none;
 }
 
 .lorem-ipsum {
-    padding-top: 25px;
-    padding-bottom: 50px;
-    text-align: justify;
+    text-align: left;
 }

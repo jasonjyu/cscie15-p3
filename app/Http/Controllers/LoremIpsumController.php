@@ -80,7 +80,6 @@ class LoremIpsumController extends Controller
                 $text[$p] .= $faker->sentence($num_words, false) . " ";
             }
         }
-        // $text = $faker->paragraphs($num_paragraphs);
 
         return $text;
     }

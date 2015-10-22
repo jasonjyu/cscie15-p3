@@ -1,9 +1,23 @@
-/* Prevents clicking on slider imput text box. */
-label {
-    pointer-events: none;
-}
+/* Prevents clicking on slider input text box. */
 .ui-slider-input {
     pointer-events: none;
+}
+
+.ui-select {
+    margin: auto;
+    width: 50%;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.phoneNumber {
+    font-style: italic;
+}
+
+.email {
+    text-decoration: underline;
 }
 
 .random-user {

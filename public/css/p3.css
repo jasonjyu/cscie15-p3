@@ -1,10 +1,10 @@
 /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-/*html {
+html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
-}*/
+}
 /* End Box Sizing */
 
 /* http://mystrd.at/modern-clean-css-sticky-footer */
@@ -33,15 +33,13 @@ footer {
     width: 100%;
 }
 
-body {
-    text-align: center;
+.content {
+    margin: auto;
+    padding-bottom: 50px;
+    width: 75%;
 }
 
-hr {
-    border: 1px solid;
-}
-
-section, header, nav {
+.content, header, nav {
     padding-right: 25px;
     padding-left: 25px;
 }
@@ -56,4 +54,12 @@ nav ul li {
     display: inline;
     padding: 5px;
     margin-right: 5px;
+}
+
+body {
+    text-align: center;
+}
+
+hr {
+    border: 1px solid;
 }
