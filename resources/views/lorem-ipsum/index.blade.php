@@ -19,7 +19,8 @@
 @section('content')
     <h2>Lorem Ipsum Generator</h2>
 
-    <form method='post' action='/lorem-ipsum' data-transition='none'>
+    <form method='post' action='/lorem-ipsum' data-transition='none'
+          {!! App::environment('local') ? 'data-ajax=\'false\'' : '' !!}>
         <input type='hidden' value='{{ csrf_token() }}' name='_token'/>
         <fieldset>
             <label class='ui-slider-input' for='num_paragraphs'>
@@ -43,7 +44,7 @@
             <input id='num_sentences'
                    type='range'
                    name='num_sentences'
-                   value='{{ $_POST['num_sentences'] or 5 }}'
+                   value='{{ $_POST['num_sentences'] or 13 }}'
                    min='1'
                    max='50'
                    data-show-value='false'
@@ -52,19 +53,25 @@
         </fieldset>
         <br/>
         <fieldset>
-            <label class='ui-slider-input' for='num_words'>
-                Number of Words Per Sentence:
-            </label>
-            <input id='num_words'
-                   type='range'
-                   name='num_words'
-                   value='{{ $_POST['num_words'] or 8 }}'
-                   min='1'
-                   max='50'
-                   data-show-value='false'
-                   data-popup-enabled='true'
-                   data-highlight='true'/>
+            <label for='locale'>Language:</label>
+            <select name='locale' id='locale'>
+                <option value='la_LA'>Latin</option>
+                <option value='ar_JO' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'ar_JO') echo 'selected'; ?>>Arabic</option>
+                <option value='zh_TW' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'zh_TW') echo 'selected'; ?>>Chinese</option>
+                <option value='cs_CZ' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'cs_CZ') echo 'selected'; ?>>Czech </option>
+                <option value='fa_IR' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'fa_IR') echo 'selected'; ?>>Farsi </option>
+                <option value='fr_FR' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'fr_FR') echo 'selected'; ?>>French</option>
+                <option value='ka_GE' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'ka_GE') echo 'selected'; ?>>Georgian</option>
+                <option value='de_DE' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'de_DE') echo 'selected'; ?>>German</option>
+                <option value='hu_HU' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'hu_HU') echo 'selected'; ?>>Hungarian</option>
+                <option value='it_IT' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'it_IT') echo 'selected'; ?>>Italian</option>
+                <option value='kk_KZ' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'kk_KZ') echo 'selected'; ?>>Kazakh </option>
+                <option value='pl_PL' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'pl_PL') echo 'selected'; ?>>Polish </option>
+                <option value='ru_RU' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'ru_RU') echo 'selected'; ?>>Russian</option>
+                <option value='uk_UA' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'uk_UA') echo 'selected'; ?>>Ukrainian</option>
+            </select>
         </fieldset>
+        <br/>
         <br/>
         <input type='submit' value='Generate Text' data-inline='true'/>
     </form>

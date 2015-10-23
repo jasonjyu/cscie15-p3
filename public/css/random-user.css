@@ -5,6 +5,7 @@
 
 .ui-select {
     margin: auto;
+    min-width: 240px;
     width: 50%;
 }
 
@@ -25,5 +26,6 @@ img {
     display: block;
     margin: auto;
     margin-top: 25px;
+    min-width: 120px;
     width: 25%;
 }

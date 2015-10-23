@@ -19,7 +19,8 @@
 @section('content')
     <h2>Random User Generator</h2>
 
-    <form method='post' action='/random-user' data-transition='none'>
+    <form method='post' action='/random-user' data-transition='none'
+          {!! App::environment('local') ? 'data-ajax=\'false\'' : '' !!}>
         <input type='hidden' value='{{ csrf_token() }}' name='_token'/>
         <fieldset>
             <label class='ui-slider-input' for='num_users'>

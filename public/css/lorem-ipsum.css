@@ -3,6 +3,12 @@
     pointer-events: none;
 }
 
+.ui-select {
+    margin: auto;
+    min-width: 240px;
+    width: 50%;
+}
+
 .lorem-ipsum {
     text-align: left;
 }

@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 
 class LoremIpsumController extends Controller
 {
+    /** The locale code for Latin. */
+    const LATIN_LOCALE = "la_LA";
+
     /**
      * Displays the form for generating Lorem Ipsum text.
      *
@@ -32,7 +35,7 @@ class LoremIpsumController extends Controller
             [
                 "num_paragraphs" => "required|numeric|min:1|max:50",
                 "num_sentences" => "required|numeric|min:1|max:50",
-                "num_words" => "required|numeric|min:1|max:50"
+                "locale" => "required|alpha_dash|size:5"
             ]);
 
         // print request
@@ -41,11 +44,10 @@ class LoremIpsumController extends Controller
         // parse request
         $num_paragraphs = $request["num_paragraphs"];
         $num_sentences = $request["num_sentences"];
-        $num_words = $request["num_words"];
+        $locale = $request["locale"];
 
-        // generate Lorem Ipsum text
-        $text = $this->generateText($num_paragraphs, $num_sentences,
-            $num_words);
+        // generate Lorem Ipsum or random text depending on the locale code
+        $text = $this->generateText($num_paragraphs, $num_sentences, $locale);
 
         // return "The generated result of Lorem Ipsum text.";
         return view("lorem-ipsum.index")->with("text", $text);
@@ -58,16 +60,17 @@ class LoremIpsumController extends Controller
      * @param  integer $num_paragraphs number of paragraphs to generate
      * @param  integer $num_sentences  number of sentences to generate per
      *                                 paragraph
-     * @param  integer $num_words      number of words to generate per sentence
+     * @param  string  $locale         language locale of text to generate
      * @return array|string
      */
-    protected function generateText($num_paragraphs, $num_sentences, $num_words)
+    protected function generateText($num_paragraphs, $num_sentences,
+        $locale = self::LATIN_LOCALE)
     {
         // initialize generated Lorem Ipsum text array
         $text = array();
 
         // use the factory to create a Faker\Generator instance
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create($locale);
 
         // generate $num_paragraphs paragraphs
         for ($p = 0; $p < $num_paragraphs; $p++) {
@@ -76,8 +79,13 @@ class LoremIpsumController extends Controller
 
             // generate $num_sentences sentences for each paragraph
             for ($s = 0; $s < $num_sentences; $s++) {
-                // generate $num_words words per sentence
-                $text[$p] .= $faker->sentence($num_words, false) . " ";
+                // if the locale code is Latin, then generate Lorem Ipsum text
+                if ($locale == self::LATIN_LOCALE) {
+                    $text[$p] .= $faker->sentence() . " ";
+                // otherwise, generate random text of the language locale
+                } else {
+                    $text[$p] .= $faker->realText(30, 1) . " ";
+                }
             }
         }
 

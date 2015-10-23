@@ -29,10 +29,10 @@
 
         <nav>
             <ul>
-                <li><a href='/'>Home</a></li>
-                <li><a href='/lorem-ipsum'>Lorem Ipsum Generator</a></li>
-                <li><a href='/random-user'>Random User Generator</a></li>
-                <li><a href='/xkcd-password'>xkcd Password Generator</a></li>
+                <li><a href='/' data-ajax='false'>Home</a></li>
+                <li><a href='/lorem-ipsum' data-ajax='false'>Lorem Ipsum Generator</a></li>
+                <li><a href='/random-user' data-ajax='false'>Random User Generator</a></li>
+                <li><a href='/xkcd-password' data-ajax='false'>xkcd Password Generator</a></li>
             </ul>
         </nav>
 
@@ -47,9 +47,6 @@
             &copy; {{ date('Y') }}
             <a href='https://github.com/jasonjyu/cscie15-p3' class='fa fa-github' target='_blank'>View on Github</a>
         </footer>
-
-        <!-- <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script> -->
-        <!-- <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script> -->
 
         {{-- Yield any page specific JS files or anything else you might want at
              the end of the body
