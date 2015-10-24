@@ -2,8 +2,9 @@
 <html>
 <head>
     <title>
-        {{-- Yield the title if it exists, otherwise default to
-             'Developer's Best Friend'
+        {{-- 
+        Yield the title if it exists, otherwise default to
+        'Developer's Best Friend'
         --}}
         @yield('title','Developer\'s Best Friend')
     </title>
@@ -16,8 +17,9 @@
     <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/readable/bootstrap.min.css' rel='stylesheet'/>
     <link href='/css/p3.css' rel='stylesheet'/>
 
-    {{-- Yield any page specific CSS files or anything else you might want in
-         the <head>
+    {{--
+    Yield any page specific CSS files or anything else you might want in the
+    <head>
     --}}
     @yield('head')
 </head>
@@ -48,8 +50,9 @@
             <a href='https://github.com/jasonjyu/cscie15-p3' class='fa fa-github' target='_blank'>View on Github</a>
         </footer>
 
-        {{-- Yield any page specific JS files or anything else you might want at
-             the end of the body
+        {{--
+        Yield any page specific JS files or anything else you might want at the
+        end of the body
         --}}
         @yield('body')
     </div>

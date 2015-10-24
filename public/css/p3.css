@@ -35,13 +35,14 @@ footer {
 
 .content {
     margin: auto;
+    min-width: 320px;
     padding-bottom: 50px;
     width: 75%;
 }
 
 .content, header, nav {
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 nav ul {

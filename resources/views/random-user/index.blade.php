@@ -4,9 +4,10 @@
     Random User Generator
 @stop
 
-{{-- This `head` section will be yielded right before the closing </head> tag.
-     Use it to add specific things that *this* View needs in the head, such as
-     a page specific styesheets.
+{{--
+This `head` section will be yielded right before the closing </head> tag. Use it
+to add specific things that *this* View needs in the head, such as a page
+specific styesheets.
 --}}
 @section('head')
     <link rel='stylesheet' type='text/css' href='//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css'/>
@@ -20,6 +21,7 @@
     <h2>Random User Generator</h2>
 
     <form method='post' action='/random-user' data-transition='none'
+        {{-- allow error and debug pages to open with jQuery libraries --}}
           {!! App::environment('local') ? 'data-ajax=\'false\'' : '' !!}>
         <input type='hidden' value='{{ csrf_token() }}' name='_token'/>
         <fieldset>
@@ -60,7 +62,8 @@
                    type='checkbox'
                    name='data_options[]'
                    value='email'
-                   <?php if (isset($_POST['data_options']) &&
+                   {{-- select 'email' option by default --}}
+                   <?php if (!isset($_POST['data_options']) ||
                          in_array('email', $_POST['data_options']))
                          echo 'checked'; ?>/>
             <label for='birthdate'>Birthdate</label>
@@ -76,7 +79,8 @@
                    type='checkbox'
                    name='data_options[]'
                    value='photo'
-                   <?php if (isset($_POST['data_options']) &&
+                   {{-- select 'photo' option by default --}}
+                   <?php if (!isset($_POST['data_options']) ||
                          in_array('photo', $_POST['data_options']))
                          echo 'checked'; ?>/>
         </fieldset>
@@ -187,9 +191,10 @@
     @endif
 @stop
 
-{{-- This `body` section will be yielded right before the closing </body> tag.
-     Use it to add specific things that *this* View needs at the end of the
-     body, such as a page specific JavaScript files.
+{{--
+This `body` section will be yielded right before the closing </body> tag. Use it
+to add specific things that *this* View needs at the end of the body, such as a
+page specific JavaScript files.
 --}}
 @section('body')
     {{-- <script src='/js/random-user.js'></script> --}}

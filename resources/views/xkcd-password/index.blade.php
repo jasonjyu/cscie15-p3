@@ -5,9 +5,9 @@
 @stop
 
 {{--
-This `head` section will be yielded right before the closing </head> tag.
-Use it to add specific things that *this* View needs in the head,
-such as a page specific styesheets.
+This `head` section will be yielded right before the closing </head> tag. Use it
+to add specific things that *this* View needs in the head, such as a page
+specific styesheets.
 --}}
 @section('head')
     <link rel='stylesheet' type='text/css' href='//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css'/>
@@ -25,7 +25,9 @@ such as a page specific styesheets.
         {!! $password or '<br>' !!}
     </section>
 
-    <form method='POST' action='/xkcd-password' data-transition='none'>
+    <form method='POST' action='/xkcd-password' data-transition='none'
+        {{-- allow error and debug pages to open with jQuery libraries --}}
+          {!! App::environment('local') ? 'data-ajax=\'false\'' : '' !!}>
         <input type='hidden' value='{{ csrf_token() }}' name='_token'/>
         <input type='submit' value='Generate Password' data-inline='true'/>
         <hr/>
@@ -85,7 +87,8 @@ such as a page specific styesheets.
             <input id='hyphen' type='radio'
                    name='separator'
                    value='-'
-                   <?php if(isset($_POST['separator']) &&
+                   {{-- select '-' separator by default --}}
+                   <?php if(!isset($_POST['separator']) ||
                          $_POST['separator'] == '-')
                          echo 'checked'; ?>/>
             <label for='period'>.</label>
@@ -131,7 +134,8 @@ such as a page specific styesheets.
             <input id='lower' type='radio'
                    name='letter_case'
                    value='strtolower'
-                   <?php if(isset($_POST['letter_case']) &&
+                   {{-- select 'strtolower' letter_case by default --}}
+                   <?php if(!isset($_POST['letter_case']) ||
                          $_POST['letter_case'] == 'strtolower')
                          echo 'checked'; ?>/>
             <label for='upper'>UPPER</label>
@@ -183,9 +187,9 @@ such as a page specific styesheets.
 @stop
 
 {{--
-This `body` section will be yielded right before the closing </body> tag.
-Use it to add specific things that *this* View needs at the end of the body,
-such as a page specific JavaScript files.
+This `body` section will be yielded right before the closing </body> tag. Use it
+to add specific things that *this* View needs at the end of the body, such as a
+page specific JavaScript files.
 --}}
 @section('body')
     {{-- <script src='/js/xkcd-password.js'></script> --}}
