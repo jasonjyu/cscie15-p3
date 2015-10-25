@@ -11,6 +11,10 @@ class LoremIpsumController extends Controller
     /** The locale code for Latin. */
     const LATIN_LOCALE = "la_LA";
 
+    /** An array of punctuations for the locale code zh_TW. */
+    protected static $zhTwPunct = array('、', '。', '」', '』', '！', '？', 'ー',
+        '，', '：', '；');
+
     /**
      * Displays the form for generating Lorem Ipsum text.
      *
@@ -84,7 +88,18 @@ class LoremIpsumController extends Controller
                     $text[$p] .= $faker->sentence() . " ";
                 // otherwise, generate random text of the language locale
                 } else {
-                    $text[$p] .= $faker->realText(30, 1) . " ";
+                    $rand_text = $faker->realText(50, 1);
+
+                    // remove all punctuation except for the last one
+                    if ($locale == "zh_TW") {
+                        $rand_text = trim(str_replace(static::$zhTwPunct, "  ",
+                            $rand_text)) . "。";
+                    } else {
+                        $rand_text = preg_replace("/\p{P}/u", "",
+                            substr($rand_text, 0, -1)) . substr($rand_text, -1);
+                    }
+
+                    $text[$p] .= $rand_text . " ";
                 }
             }
         }

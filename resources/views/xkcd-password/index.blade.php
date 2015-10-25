@@ -22,7 +22,7 @@ specific styesheets.
 
     <section class='xkcd-password'>
         {{-- if the $password is set, then print it out --}}
-        {!! $password or '<br>' !!}
+        {!! $password or '<br/>' !!}
     </section>
 
     <form method='POST' action='/xkcd-password' data-transition='none'

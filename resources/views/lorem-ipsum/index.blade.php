@@ -94,7 +94,7 @@ specific styesheets.
     @if (isset($text))
         <section class='lorem-ipsum'>
             @foreach ($text as $paragraph)
-                <p>{{ $paragraph }}</p>
+                <p>{{ preg_replace('/\B /u', '&nbsp;', $paragraph) }}</p>
             @endforeach
         </section>
     @endif
