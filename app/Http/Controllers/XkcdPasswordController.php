@@ -41,7 +41,7 @@ class XkcdPasswordController extends Controller
                 "num_symbols" => "required|numeric|min:0|max:3",
                 "min_password_length" => "required|numeric|min:8|max:32",
                 "separator" => "string|min:0|max:1",
-                "letter_case" => "required|alpha_dash"
+                "letter_case" => "required|function"
             ]);
 
         // print request
