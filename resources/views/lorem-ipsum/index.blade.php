@@ -33,7 +33,7 @@ specific styesheets.
                    name='num_paragraphs'
                    value='{{ $_POST['num_paragraphs'] or 3 }}'
                    min='1'
-                   max='50'
+                   max='25'
                    data-show-value='false'
                    data-popup-enabled='true'
                    data-highlight='true'/>
@@ -48,7 +48,7 @@ specific styesheets.
                    name='num_sentences'
                    value='{{ $_POST['num_sentences'] or 13 }}'
                    min='1'
-                   max='50'
+                   max='25'
                    data-show-value='false'
                    data-popup-enabled='true'
                    data-highlight='true'/>
@@ -60,9 +60,7 @@ specific styesheets.
                 <option value='la_LA'>Latin</option>
                 <option value='ar_JO' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'ar_JO') echo 'selected'; ?>>Arabic</option>
                 <option value='zh_TW' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'zh_TW') echo 'selected'; ?>>Chinese</option>
-                <option value='cs_CZ' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'cs_CZ') echo 'selected'; ?>>Czech </option>
                 <option value='fa_IR' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'fa_IR') echo 'selected'; ?>>Farsi </option>
-                <option value='fr_FR' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'fr_FR') echo 'selected'; ?>>French</option>
                 <option value='ka_GE' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'ka_GE') echo 'selected'; ?>>Georgian</option>
                 <option value='de_DE' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'de_DE') echo 'selected'; ?>>German</option>
                 <option value='hu_HU' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'hu_HU') echo 'selected'; ?>>Hungarian</option>

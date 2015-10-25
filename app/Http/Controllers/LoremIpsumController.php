@@ -37,8 +37,8 @@ class LoremIpsumController extends Controller
         $this->validate(
             $request,
             [
-                "num_paragraphs" => "required|numeric|min:1|max:50",
-                "num_sentences" => "required|numeric|min:1|max:50",
+                "num_paragraphs" => "required|numeric|min:1|max:25",
+                "num_sentences" => "required|numeric|min:1|max:25",
                 "locale" => "required|alpha_dash|size:5"
             ]);
 
