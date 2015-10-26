@@ -58,15 +58,15 @@ specific styesheets.
             <label for='locale'>Language:</label>
             <select name='locale' id='locale'>
                 <option value='la_LA'>Latin</option>
-                {{-- commented out languages that significantly impact performance --}}
+                <!-- commented out languages that significantly impact performance -->
                 <option value='ar_JO' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'ar_JO') echo 'selected'; ?>>Arabic</option>
                 <option value='zh_TW' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'zh_TW') echo 'selected'; ?>>Chinese</option>
-                {{-- <option value='cs_CZ' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'cs_CZ') echo 'selected'; ?>>Czech </option> --}}
+                <!-- <option value='cs_CZ' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'cs_CZ') echo 'selected'; ?>>Czech </option> -->
                 <option value='fa_IR' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'fa_IR') echo 'selected'; ?>>Farsi </option>
-                {{-- <option value='fr_FR' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'fr_FR') echo 'selected'; ?>>French</option> --}}
-                {{-- <option value='ka_GE' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'ka_GE') echo 'selected'; ?>>Georgian</option> --}}
+                <!-- <option value='fr_FR' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'fr_FR') echo 'selected'; ?>>French</option> -->
+                <!-- <option value='ka_GE' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'ka_GE') echo 'selected'; ?>>Georgian</option> -->
                 <option value='de_DE' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'de_DE') echo 'selected'; ?>>German</option>
-                {{-- <option value='hu_HU' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'hu_HU') echo 'selected'; ?>>Hungarian</option> --}}
+                <!-- option value='hu_HU' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'hu_HU') echo 'selected'; ?>>Hungarian</option> -->
                 <option value='it_IT' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'it_IT') echo 'selected'; ?>>Italian</option>
                 <option value='kk_KZ' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'kk_KZ') echo 'selected'; ?>>Kazakh </option>
                 <option value='pl_PL' <?php if (isset($_POST['locale']) && $_POST['locale'] == 'pl_PL') echo 'selected'; ?>>Polish </option>
