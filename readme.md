@@ -16,6 +16,7 @@ For the Lorem Ipsum generator, I ran the commands:
 > find . -name Text.php | sed 's/\.\///' | sed 's/\/.*//'
 ```
 to get the language locale codes that the Faker package supported for generating random text.
+
 For the Random User generator, I ran the commands:
 ```shell
 > cd vendor/fzaninotto/faker/src/Faker/Provider
@@ -23,7 +24,8 @@ For the Random User generator, I ran the commands:
 ```
 to get the language locale codes that the Faker package supported for generating address.  And I repeated this command for phone numbers (*PhoneNumber.php*) and email addresses (*Internet.php*).
 I decoded the locale codes using the webpage <http://www.science.co.il/Language/Locale-codes.asp> and saved all the information into the Excel spreadsheet [locale.xlsx](locale.xlsx).
-For the xkcd Password generator, I downloaded the list of words from <http://www.wordfrequency.info> into the file wordfrequency.info_words and then ran the command
+
+For the xkcd Password generator, I downloaded the list of words from <http://www.wordfrequency.info> into the file wordfrequency.info_words and then ran the command:
 ```shell
 > sort wordfrequency.info_words | grep -v - | uniq > words
 ```
