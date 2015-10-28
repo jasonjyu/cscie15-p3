@@ -10,11 +10,7 @@ to add specific things that *this* View needs in the head, such as a page
 specific styesheets.
 --}}
 @section('head')
-    <link rel='stylesheet' type='text/css' href='//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css'/>
-    <link href='/css/random-user.css' type='text/css' rel='stylesheet'/>
-
-    <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
-    <script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
+    <link href='/css/random-user.css' rel='stylesheet'/>
 @stop
 
 @section('content')

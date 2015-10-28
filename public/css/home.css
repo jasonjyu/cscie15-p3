@@ -1,0 +1,10 @@
+img {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width: 75%;
+}
+
+p {
+    text-align: left;
+}

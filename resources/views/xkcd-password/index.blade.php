@@ -10,11 +10,7 @@ to add specific things that *this* View needs in the head, such as a page
 specific styesheets.
 --}}
 @section('head')
-    <link rel='stylesheet' type='text/css' href='//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css'/>
-    <link href='/css/xkcd-password.css' type='text/css' rel='stylesheet'/>
-
-    <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
-    <script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
+    <link href='/css/xkcd-password.css' rel='stylesheet'/>
 @stop
 
 @section('content')
@@ -163,27 +159,6 @@ specific styesheets.
             @endforeach
         </ul>
     @endif
-
-    <div>
-        <hr>
-        <p>
-            This page generates passwords inspired by the xkcd
-            <a href='http://xkcd.com/936/'>
-                Password Strength
-            </a>
-            comic strip.
-            <br>
-            <a href='http://xkcd.com/936/'>
-                <img class='comic' src='http://imgs.xkcd.com/comics/password_strength.png' alt='xkcd password strength'>
-            </a>
-            <br>
-            The list of words come from
-            <a href='http://www.wordfrequency.info'>
-                http://www.wordfrequency.info
-            </a>
-            .
-        </p>
-    </div>
 @stop
 
 {{--

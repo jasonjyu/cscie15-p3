@@ -12,10 +12,17 @@
     <meta charset='utf-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'/>
 
-    <!-- <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'/> -->
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'/>
     <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/readable/bootstrap.min.css' rel='stylesheet'/>
+
+    {{-- Required for the jQuery Mobile library --}}
+    <link href='//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css' rel='stylesheet'/>
+
     <link href='/css/p3.css' rel='stylesheet'/>
+
+    {{-- Required for the jQuery Mobile library --}}
+    <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+    <script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
 
     {{--
     Yield any page specific CSS files or anything else you might want in the
@@ -31,10 +38,10 @@
 
         <nav>
             <ul>
-                <li><a href='/' data-ajax='false'>Home</a></li>
-                <li><a href='/lorem-ipsum' data-ajax='false'>Lorem Ipsum Generator</a></li>
-                <li><a href='/random-user' data-ajax='false'>Random User Generator</a></li>
-                <li><a href='/xkcd-password' data-ajax='false'>xkcd Password Generator</a></li>
+                <li><a class='btn btn-sm btn-default' href='/' data-ajax='false'>Home</a></li>
+                <li><a class='btn btn-sm btn-default' href='/lorem-ipsum' data-ajax='false'>Lorem Ipsum Generator</a></li>
+                <li><a class='btn btn-sm btn-default' href='/random-user' data-ajax='false'>Random User Generator</a></li>
+                <li><a class='btn btn-sm btn-default' href='/xkcd-password' data-ajax='false'>xkcd Password Generator</a></li>
             </ul>
         </nav>
 
