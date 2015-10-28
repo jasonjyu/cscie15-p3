@@ -95,8 +95,9 @@ class LoremIpsumController extends Controller
                         $rand_text = trim(str_replace(static::$zhTwPunct, "  ",
                             $rand_text)) . "。";
                     } else {
-                        $rand_text = preg_replace("/\p{P}/u", "",
-                            substr($rand_text, 0, -1)) . substr($rand_text, -1);
+                        $rand_text = trim(preg_replace("/\p{P}/u", "",
+                            substr($rand_text, 0, -1))) .
+                            substr($rand_text, -1);
                     }
 
                     $text[$p] .= $rand_text . " ";
