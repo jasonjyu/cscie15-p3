@@ -89,11 +89,11 @@ specific styesheets.
          for each paragraph
     --}}
     @if (isset($text))
-        <section class='lorem-ipsum'>
+        <div class='lorem-ipsum'>
             @foreach ($text as $paragraph)
                 <p>{{ preg_replace('/\B /u', '&nbsp;', $paragraph) }}</p>
             @endforeach
-        </section>
+        </div>
     @endif
 @stop
 

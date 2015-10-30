@@ -30,6 +30,7 @@ For the xkcd Password generator, I downloaded the list of words from <http://www
 > sort wordfrequency.info_words | grep -v - | uniq > words
 ```
 to filter out words with hyphens.
+And I modified the App\Providers\AppServiceProvider class and added a custom validation rule to validate that the Letter Case parameter is a function.
 
 ## Outside code
 * Bootstrap: http://getbootstrap.com/

@@ -155,7 +155,7 @@ specific styesheets.
 
     {{-- if the $users array is set, then print out the data for each user --}}
     @if (isset($users))
-        <section class='random-user'>
+        <div class='random-user'>
             @foreach ($users as $user)
                 <div class='user'>
                     @if (isset($user['photoUrl']))
@@ -183,7 +183,7 @@ specific styesheets.
                 </div>
                 <br/>
             @endforeach
-        </section>
+        </div>
     @endif
 @stop
 

@@ -16,10 +16,10 @@ specific styesheets.
 @section('content')
     <h2>xkcd Password Generator</h2>
 
-    <section class='xkcd-password'>
+    <div class='xkcd-password'>
         {{-- if the $password is set, then print it out --}}
         {!! $password or '<br/>' !!}
-    </section>
+    </div>
 
     <form method='POST' action='/xkcd-password' data-transition='none'
         {{-- allow error and debug pages to open with jQuery libraries --}}
