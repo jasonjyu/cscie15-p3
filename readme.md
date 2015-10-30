@@ -7,7 +7,7 @@
 A web application called *Developer's Best Friend* which includes a **Lorem Ipsum Generator** and a **Random User Generator**.
 
 ## Demo
-TBD.
+[Screencast Link](https://youtu.be/b_lsm6JQqXw)
 
 ## Details for teaching team
 For the Lorem Ipsum generator, I ran the commands:
