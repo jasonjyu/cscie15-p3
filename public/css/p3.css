@@ -28,16 +28,13 @@ footer {
 /* End Sticky Footer */
 
 .container {
-    max-width: 960px;
+    max-width: 720px;
     min-width: 320px;
-    width: 100%;
 }
 
 .content {
     margin: auto;
-    min-width: 320px;
     padding-bottom: 50px;
-    width: 75%;
 }
 
 .content, header, nav {
